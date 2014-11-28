@@ -1,0 +1,32 @@
+[user]
+	name = Bastien Caudan
+	email = bastien.caudan@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	fp = format-patch
+	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
+	oops = commit --amend -a -C HEAD
+[core]
+	pager = cat
+	editor = vi
+	excludesfile = /Users/bcaudan/.gitignore_global
+	quotepath = false
+	ignorecase = true
+	pager = less
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[credential]
+	helper = osxkeychain
+[push]
+	default = current
+[pull]
+	rebase = preserve

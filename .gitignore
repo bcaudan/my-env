@@ -1,0 +1,27 @@
+# Ignore everything
+*
+
+# Except
+!bin
+!bin/*
+
+!etc
+!etc/*
+
+## bash
+!.bash_profile
+!.bashrc
+
+## zsh
+!.zshenv
+!.zshrc
+
+## git
+!.git-prompt.sh
+!.gitconfig
+!.gitignore
+!.gitignore_global
+
+# But
+*/*~
+*/.DS_Store
