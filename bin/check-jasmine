@@ -1,0 +1,23 @@
+#!/bin/bash
+function hasAny() {
+	sep="\|"
+	regex="$( printf "${sep}%s" "$@" )"
+	regex="${regex:${#sep}}"
+	grep -nri --color=always "$regex" *
+}
+
+SEARCH="hasAny 'ddescribe' 'iit' 'pause()'"
+
+EXIT_STATUS=0
+
+for TEST_PATH in "$@"
+do
+	cd "$TEST_PATH"
+	echo "$SEARCH in '$TEST_PATH'"
+	eval "$SEARCH"
+	HAS_RESULT=!$?
+	(( EXIT_STATUS=$EXIT_STATUS || $HAS_RESULT ))
+	cd -
+done
+
+exit $EXIT_STATUS
