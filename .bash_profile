@@ -11,10 +11,6 @@ source ~/.git-prompt.sh
 
 export PS1="$NM[ $HI\u $SI\w$HII"'$(__git_ps1)'"$NM ] $IN"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-
 if [ -f ~/.bashrc ];
 then
    source ~/.bashrc

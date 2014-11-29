@@ -25,8 +25,3 @@ alias tomcat-stop="$CATALINA_HOME/bin/shutdown.sh"
 alias tomcat-log="tail -f $CATALINA_BASE/logs/catalina.out"
 alias tomcat-dir="cd $CATALINA_BASE"
 
-# Java
-alias java6="export JAVA_HOME=`/usr/libexec/java_home --version 1.6`"
-alias java7="export JAVA_HOME=`/usr/libexec/java_home --version 1.7`"
-alias java8="export JAVA_HOME=`/usr/libexec/java_home --version 1.8`"
-java7
