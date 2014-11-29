@@ -38,3 +38,8 @@ export GRAILS_OPTS="$GRAILS_OPTS -Ddatabase.name=xke"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+#ssh
+if [ -f $HOME/.ssh/id_rsa ]; then
+	eval "$(ssh-agent -s)" && ssh-add $HOME/.ssh/id_rsa
+fi
+
