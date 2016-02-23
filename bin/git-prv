@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+readonly CURRENT_BRANCH=$(git symbolic-ref HEAD | sed -e "s/^refs\/heads\///")
+readonly COMMIT_REFS=($(git rev-list origin/$CURRENT_BRANCH..$CURRENT_BRANCH))
+readonly GROUPS="Frontend"
+
+post_reviews() {
+    for (( idx=${#COMMIT_REFS[@]}-1 ; idx>=0 ; idx-- )) ; do
+        rbt post -p --target-groups=${GROUPS} ${COMMIT_REFS[idx]}
+    done
+}
+
+main() {
+    git push
+    post_reviews
+}
+
+main
+

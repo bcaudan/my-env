@@ -5,8 +5,8 @@ alias myip='ifconfig en1 | grep "inet " | cut -d" " -f2'
 
 alias dev="cd ~/Developpement"
 alias ri="cd ~/Projets/xebialabs/xl-release/"
-CS_HOME="~/Projets/ContentSquare/"
-alias cs="cd $CS_HOME"
+alias cs="cd $CS_HOME/workspace"
+alias csw="cd $CS_HOME/cs-env/www"
 alias teach="cd ~/Projets/teacheasy/"
 
 alias karmaNoSlices='export KARMA_SLICES=1'
@@ -30,3 +30,5 @@ alias java6="export JAVA_HOME=`/usr/libexec/java_home --version 1.6`"
 alias java7="export JAVA_HOME=`/usr/libexec/java_home --version 1.7`"
 alias java8="export JAVA_HOME=`/usr/libexec/java_home --version 1.8`"
 java7
+
+alias warm="time curl -u admin:c0nt3ntsqu@re http://ci-uxanalytics.content-square.fr/healthcheck"
