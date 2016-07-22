@@ -31,4 +31,4 @@
 [pull]
 	rebase = preserve
 [init]
-	templatedir = ~/.git-templates
+	#templatedir = ~/.git-templates
