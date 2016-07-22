@@ -4,7 +4,7 @@ CONF_DIR="$HOME/Library"
 BIN_DIR="/usr/local/bin"
 BREW_BIN_DIR="/usr/local/sbin"
 USER_BIN_DIR="$HOME/bin"
-CS_HOME="/Users/bcaudan/Projets/ContentSquare"
+CS_HOME="$HOME/Projets/ContentSquare"
 
 setopt rmstarsilent
 
