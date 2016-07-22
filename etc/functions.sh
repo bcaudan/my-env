@@ -1,32 +1,18 @@
-# grep
+#!/usr/bin/env bash
+
 export GREP_COLOR="01;31"
 grp(){
 	grep --color=always -nri "$@" *
 }
 
-karmab(){
-	if [[ -z "$1" ]]
-	then
-		echo $KARMA_BROWSER
-	else
-		export KARMA_BROWSER="$1"
-	fi
-}
-
 sp() {
+    # show process running on given port
 	lsof -i ":$1"
 }
 
 kp() {
+    # kill process running on given port
 	kill -9 $(lsof -t -i ":$1")
-}
-
-#cs-up() {
-#    $(boot2docker shellinit 2> /dev/null) && cd $CS_HOME/devenv-symfony-compose && workon fig && fig-replace-ip && fig up
-#
-
-cs-up() {
-    boot2docker up && $(boot2docker shellinit 2> /dev/null) && cd $CS_HOME/devenv-symfony-compose && workon compose && dc-replace-ip && docker-compose up -d && docker-compose logs
 }
 
 dc-replace-ip() {
@@ -38,22 +24,22 @@ uxasqs-up() {
 	cd "$CS_HOME/alias-goals-processing" && workon uxasqs && python script.py config/parameters_localdev.json
 }
 
-rvf() {
+rv-tags() {
+	local commit="$1"
+	if [[ -z "$1" ]]
+	then
+		commit="HEAD"
+	fi
+	rbt post -p --target-groups=Tags $commit
+}
+
+rv-appli() {
 	local commit="$1"
 	if [[ -z "$1" ]]
 	then
 		commit="HEAD"
 	fi
 	rbt post -p --target-groups=Frontend $commit
-}
-
-rvb() {
-	local commit="$1"
-	if [[ -z "$1" ]]
-	then
-		commit="HEAD"
-	fi
-	rbt post -p --target-groups=Backend $commit
 }
 
 checkCDN() {
@@ -73,5 +59,7 @@ checkCDN() {
 }
 
 git-push-until() {
+    # git push given branch until given commit
+    # git push my-branch HEAD^
 	git pull && git co -b WIP && git branch -f $1 $2 && git co $1 && git push && git co WIP && git branch -f $1 && git co $1 && git branch -D WIP
 }
