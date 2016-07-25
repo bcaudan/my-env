@@ -20,17 +20,7 @@ export CS_USER="bastien"
 export AWS_USER="bastienc"
 
 # Docker
-#eval "$(docker-machine env cs-env)"
-#export DOCKER_HOST_IP=`docker-machine ip cs-env`
 export LOCAL_IP=`ifconfig en0 | grep "inet " | cut -d" " -f2`
-alias cs-env-start='
-  docker-machine start cs-env ; 
-  eval "$(docker-machine env cs-env)" &&
-  export DOCKER_HOST_IP=`docker-machine ip cs-env` &&
-  cd $CS_HOME/cs-env/dev-osx &&
-  rm -rf /var/cache/symfony/* && 
-  docker-compose up'
-
 
 # workspace
 export CS_ENV_DIR="$CS_HOME/cs-env"
