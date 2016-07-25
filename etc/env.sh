@@ -33,6 +33,7 @@ alias cs-env-start='
 
 
 # workspace
+export CS_ENV_DIR="$CS_HOME/cs-env"
 export HUB_LOCAL_WORKSPACE="$CS_HOME/workspace/hub"
 export UXA_LOCAL_WORKSPACE="$CS_HOME/workspace/mousetest"
 export PUBLICITEST_LOCAL_WORKSPACE="$CS_HOME/workspace/publicitest"

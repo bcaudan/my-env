@@ -22,6 +22,9 @@
 !.gitignore
 !.gitignore_global
 
+# other config
+!.vimrc
+
 # But
 */*~
 */.DS_Store
