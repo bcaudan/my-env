@@ -4,6 +4,7 @@
 # Except
 !bin
 !bin/*
+bin/*.jar
 
 !etc
 !etc/*
