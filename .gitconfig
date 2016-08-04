@@ -16,7 +16,7 @@
 [core]
 	pager = cat
 	editor = vi
-	excludesfile = /Users/bcaudan/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	quotepath = false
 	ignorecase = true
 	pager = less

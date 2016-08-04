@@ -18,6 +18,6 @@ alias cs-env-start='
   docker-machine start cs-env ;
   eval "$(docker-machine env cs-env)" &&
   export DOCKER_HOST_IP=`docker-machine ip cs-env` &&
-  cd $CS-ENV-DIR/dev-osx &&
+  cd $CS_ENV_DIR/dev-osx &&
   rm -rf /var/cache/symfony/* &&
   docker-compose up'
