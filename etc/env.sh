@@ -21,9 +21,11 @@ export AWS_USER="bastienc"
 
 # Docker
 export LOCAL_IP=`ifconfig en0 | grep "inet " | cut -d" " -f2`
+export DOCKER_HOST_IP=$LOCAL_IP
 
 # workspace
 export CS_ENV_DIR="$CS_HOME/cs-env"
+export LOCAL_WORKSPACE="$CS_HOME/workspace"
 export HUB_LOCAL_WORKSPACE="$CS_HOME/workspace/hub"
 export UXA_LOCAL_WORKSPACE="$CS_HOME/workspace/mousetest"
 export PUBLICITEST_LOCAL_WORKSPACE="$CS_HOME/workspace/publicitest"

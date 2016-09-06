@@ -14,10 +14,6 @@ alias ssh-refresh="cd $CS_HOME/docs/config/dot_ssh/ && ./setup.sh && cd -"
 alias warm="time curl -u admin:c0nt3ntsqu@re http://ci-uxanalytics.content-square.fr/healthcheck"
 
 alias cs-env-start='
-  export LOCAL_IP=`ifconfig en0 | grep "inet " | cut -d" " -f2` ;
-  docker-machine start cs-env ;
-  eval "$(docker-machine env cs-env)" &&
-  export DOCKER_HOST_IP=`docker-machine ip cs-env` &&
   cd $CS_ENV_DIR/dev-osx &&
   rm -rf /var/cache/symfony/* &&
-  docker-compose up'
+  ./containers.sh start'

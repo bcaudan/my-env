@@ -24,7 +24,7 @@ uxasqs-up() {
     cd "$CS_HOME/alias-goals-processing" && workon uxasqs && python script.py config/parameters_localdev.json
 }
 
-rv-tags() {
+rvt() {
     local commit="$1"
     if [[ -z "$1" ]]
     then
@@ -33,13 +33,22 @@ rv-tags() {
     rbt post -p --target-groups=Tags $commit
 }
 
-rv-appli() {
+rva() {
     local commit="$1"
     if [[ -z "$1" ]]
     then
         commit="HEAD"
     fi
-    rbt post -p --target-groups=Frontend $commit
+    rbt post -p --target-groups=Application $commit
+}
+
+rvf() {
+    local commit="$1"
+    if [[ -z "$1" ]]
+    then
+        commit="HEAD"
+    fi
+    rbt post -p --target-groups=Application,Tags $commit
 }
 
 wait-invalidation() {
