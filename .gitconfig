@@ -32,3 +32,5 @@
 	rebase = preserve
 [init]
 	#templatedir = ~/.git-templates
+[diff]
+	indentHeuristic = true
