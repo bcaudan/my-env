@@ -14,6 +14,7 @@ alias ssh-refresh="cd $CS_HOME/docs/config/dot_ssh/ && ./setup.sh && cd -"
 alias warm="time curl -u admin:c0nt3ntsqu@re http://ci-uxanalytics.content-square.fr/healthcheck"
 
 alias cs-env-start='
+  export LOCAL_IP=`ipconfig getifaddr en0 || ipconfig getifaddr en4` &&
   cd $CS_ENV_DIR/dev-osx &&
   rm -rf /var/cache/symfony/* &&
   ./containers.sh start'

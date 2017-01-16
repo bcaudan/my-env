@@ -29,3 +29,5 @@ bin/*.jar
 # But
 */*~
 */.DS_Store
+bin/ph
+bin/project-details

@@ -20,7 +20,7 @@ export CS_USER="bastien"
 export AWS_USER="bastienc"
 
 # Docker
-export LOCAL_IP=`ifconfig en0 | grep "inet " | cut -d" " -f2`
+export LOCAL_IP=`ipconfig getifaddr en0 || ipconfig getifaddr en4`
 export DOCKER_HOST_IP=$LOCAL_IP
 
 # workspace
