@@ -28,6 +28,7 @@
 	helper = osxkeychain
 [push]
 	default = current
+	followTags = true
 [pull]
 	rebase = preserve
 [init]
