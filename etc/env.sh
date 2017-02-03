@@ -32,7 +32,7 @@ export PUBLICITEST_LOCAL_WORKSPACE="$CS_HOME/workspace/publicitest"
 export PS_LOCAL_WORKSPACE="$CS_HOME/workspace/ps"
 
 # nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
 
 source aws-commands.sh
