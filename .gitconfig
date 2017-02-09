@@ -13,6 +13,8 @@
 	fp = format-patch
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
 	oops = commit --amend -a -C HEAD
+	newb = "!f() { ticketnum=$1; branchName=$2; git checkout -b \"${ticketnum}/${branchName}\"; }; f"
+	track = "!f() { branch=$1; remote=${2-origin}; git branch --set-upstream-to=${remote}/${branch} ${branch}; };f"
 [core]
 	pager = cat
 	editor = vi
