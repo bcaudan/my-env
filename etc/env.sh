@@ -19,6 +19,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 export CS_USER="bastien"
 export AWS_USER="bastienc"
 
+# AWS SSH
+source "$CS_HOME/docs/setup-workstation/aws-ssh.sh"
+
 # Docker
 export LOCAL_IP=`ipconfig getifaddr en0 || ipconfig getifaddr en4`
 export DOCKER_HOST_IP=$LOCAL_IP
@@ -35,4 +38,3 @@ export PS_LOCAL_WORKSPACE="$CS_HOME/workspace/ps"
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 
-source aws-commands.sh
