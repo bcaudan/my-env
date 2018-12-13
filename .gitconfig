@@ -13,6 +13,9 @@
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative --graph --decorate --all
 	oops = commit --amend -a -C HEAD
 	pushn = "!f() { branch=`git branch | grep \\* | cut -d ' ' -f2`; git push --set-upstream origin ${branch}; };f"
+	push-until="!f() { git pull && git co -b WIP && git branch -f $1 $2 && git co $1 && git push && git co WIP && git branch -f $1 && git co $1 && git branch -D WIP; };f"
+	update="!f() { base=${1:-master}; git co ${base} && git pull && git co - && git rebase ${base}; };f"
+	switch-base="!f() { branch=`git branch | grep \\* | cut -d ' ' -f2`; origin=${1}; new=${2}; git co ${new} && git co -b WIP && echo "cherry-pick ${origin}..${branch}" && git cherry-pick ${origin}..${branch} && git branch -f ${branch} && git co ${branch} && git branch -D WIP; };f"
 [core]
 	editor = vi
 	excludesfile = ~/.gitignore_global
