@@ -11,7 +11,8 @@
 ## Installation
   
     cd && git clone git@github.com:bcaudan/my-env.git
-    mv my-env/* . && mv my-env/.* . && rmdir my-env
+    shopt -s dotglob
+    mv my-env/* . && rmdir my-env
 
 ## ZSH Theme
 
