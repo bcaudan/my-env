@@ -1,9 +1,17 @@
 # my-env
 
+## Prerequisites
+
+* xcode
+* brew
+* git
+* zsh
+* nvm
+
 ## Installation
   
     cd && git clone git@github.com:bcaudan/my-env.git
-    mv my-env/*.* . && rmdir my-env
+    mv my-env/* . && mv my-env/.* . && rmdir my-env
 
 ## ZSH Theme
 
