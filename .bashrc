@@ -14,3 +14,13 @@ fi
 if [ -f $GLOBAL_CONF_DIR/aliases.sh ]; then
 	. $GLOBAL_CONF_DIR/aliases.sh
 fi
+
+# Private
+if [ -f $GLOBAL_CONF_DIR/private.sh ]; then
+	. $GLOBAL_CONF_DIR/private.sh
+fi
+
+# Datadog
+if [ -f $GLOBAL_CONF_DIR/dd.sh ]; then
+	. $GLOBAL_CONF_DIR/dd.sh
+fi

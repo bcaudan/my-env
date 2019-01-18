@@ -8,6 +8,7 @@ bin/*.jar
 
 !etc
 !etc/*
+etc/private.sh
 
 ## bash
 !.bash_profile

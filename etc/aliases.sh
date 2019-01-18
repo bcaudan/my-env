@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-alias ll="ls -lGh"
+alias ll="ls -lGh --color=auto"
 alias clean="rm *~"
 alias myip='ifconfig en1 | grep "inet " | cut -d" " -f2'
 
