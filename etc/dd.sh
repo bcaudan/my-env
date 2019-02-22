@@ -44,3 +44,10 @@ export DEVENV_MEM=8192
 export NODE_OPTIONS="--max-old-space-size=4096"
 
 export PATH="/Users/bastien.caudan/.nodenv/shims:${PATH}"
+
+# store key in the login keychain instead of aws-vault managing a hidden keychain
+export AWS_VAULT_KEYCHAIN_NAME=bastien.caudan
+
+# tweak session times so you don't have to re-enter passwords every 5min
+export AWS_SESSION_TTL=24h
+export AWS_ASSUME_ROLE_TTL=1h
