@@ -1,0 +1,36 @@
+#!/bin/bash
+# from https://gist.github.com/BenoitZugmeyer/d72e106949c699b0c18751f23d10548e
+
+set -euo pipefail
+
+if [[ ${#} -lt 1 ]]; then
+  echo "Usage: git-reset-date-order BRANCH_UPSTREAM
+Resets the author and committer dates of each commit of a branch so they are in order.  The
+reference date is the committer date of the HEAD commit, and the date gets decremented by 1 minute
+for every parent commits.
+Argument:
+  BRANCH_UPSTREAM: the base commit of your current branch (ex: origin/master)"
+  exit 1
+fi
+
+date=$(date --date "$(git log -1 --pretty='%cI' HEAD)" '+%s')
+upstream=${1}
+
+filter_script=$(
+  for hash in $(git log --pretty=format:%H "${upstream}..HEAD"); do
+    commit_date=$(date --date="@$date" -Iseconds)
+    echo "
+if [ \$GIT_COMMIT = ${hash} ];
+then
+    export GIT_AUTHOR_DATE=\"$commit_date\"
+    export GIT_COMMITTER_DATE=\"$commit_date\";
+fi;
+"
+    let "date = $date - 60"
+  done
+)
+
+previous_head=$(git rev-parse HEAD)
+FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --env-filter "$filter_script" "$upstream..HEAD"
+echo "Done. To cancel changes, run:
+  git reset --hard $previous_head"
