@@ -59,8 +59,6 @@ unsetopt extended_glob
 #autoload -Uz git-escape-magic
 #git-escape-magic
 
-source "$HOME/.bashrc"
-
 # google-cloud-sdk brew caveat
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
@@ -110,3 +108,5 @@ export HELM_DRIVER=configmap
 # https://blog.golang.org/go116-module-changes
 export GO111MODULE=auto
 # END ANSIBLE MANAGED BLOCK
+
+source "$HOME/.bashrc"

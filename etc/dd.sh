@@ -40,10 +40,7 @@ alias dd="cd ${DATADOG_ROOT}"
 export VAGRANT_CWD=${DATADOG_ROOT}
 
 export DEVENV_MEM=8192
-
-export NODE_OPTIONS="--max-old-space-size=4096"
-
-export PATH="/Users/bastien.caudan/.nodenv/shims:${PATH}"
+export NODE_OPTIONS="--max-old-space-size=12288"
 
 # store key in the login keychain instead of aws-vault managing a hidden keychain
 export AWS_VAULT_KEYCHAIN_NAME=bastien.caudan

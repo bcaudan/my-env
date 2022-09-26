@@ -11,6 +11,7 @@
 	ci = commit
 	co = checkout
 	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative --graph --decorate --all
+    lab = "!f() { open \"https://gitlab.ddbuild.io/DataDog/$(basename -s .git `git config --get remote.origin.url`)/commit/$(git rev-parse HEAD)/pipelines?ref=$(git branch --show-current)\"; };f"
 	oops = commit --amend -a -C HEAD
     cleanup = "!f() { git branch | fzf -m | xargs git branch -D;  };f"
 	pushn = "!f() { branch=`git branch | grep \\* | cut -d ' ' -f2`; git push --set-upstream origin ${branch}; };f"
@@ -24,14 +25,17 @@
 	ignorecase = true
 	pager = less
 	autocrlf = input
+	hooksPath = /usr/local/dd/global_hooks
 [credential]
 	helper = osxkeychain
 [push]
 	default = simple
-	followTags = true
 [pull]
 	rebase = preserve
 [diff]
 	indentHeuristic = true
 [fetch]
 	prune = true
+        tagOpt = --no-tags
+[init]
+	defaultBranch = main
